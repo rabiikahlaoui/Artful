@@ -1,4 +1,5 @@
 import { useAddress, useMetamask } from '@thirdweb-dev/react'
+import Main from '../components/Home'
 
 const style = {
   wrapper: `flex h-screen items-center justify-center`,
@@ -22,5 +23,5 @@ export default function Home() {
     )
   }
 
-  return <>{address ? <h1>welcome</h1> : Auth()}</>
+  return <>{address ? <Main /> : Auth()}</>
 }

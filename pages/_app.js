@@ -1,15 +1,17 @@
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react'
 import '../styles/globals.css'
+import { ThemeProvider } from 'next-themes'
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThirdwebProvider
       desiredChainId={ChainId.Goerli}
       chainRpc={{
-        [ChainId.Goerli]: 'https://goerli.infura.io/v3/cdeaf49fb71d454894b0c3a143cc26bf'
-      }}
-    >
+        [ChainId.Goerli]: process.env.INFURA_CHAIN_ID
+      }}>
+      <ThemeProvider enableSystem={true} attribute='class'>
         <Component {...pageProps} />
+      </ThemeProvider>
     </ThirdwebProvider>
   )
 }
